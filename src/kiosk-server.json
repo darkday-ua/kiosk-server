@@ -2,35 +2,64 @@
     "client":[
 	{
         "ip":"127.0.0.1",
-        "pid":"0",
+        "pid":0,
         "vlist":[1],
         "camEnable":"false"
     },
     {
         "ip":"127.0.0.2",
-        "pid":"1",
+        "pid":1,
         "vlist":[0],
         "camEnable":"true"
     }
 	],
 	"presentations":[  {
-	"name":"First",
+	"name":"DOOSAN LYNX 300M",
 	"pid":0,
     "pages":[
         {
             "order":0,		
-			"title":"title01",
+			"title":"Компактные токарные обрабатывающие центры серии LYNX 300M",
             "contentType":"img",
-            "linkBlob":"/assets/PresentationData/img-01-01.png",
-            "text":"Blah blaah blah blah blah <b>BOLD BLAH</b><br><i>Next string italic blah</i>",
+            "linkBlob":"http://localhost:3443/PresentationData/000-1060x800.png",
+            "text":"",
             "linkOut":""
         },
         {
-			"order":1,
-			"title":"title02",
+            "order":1,		
+			"title":"СТАНИНА серии Lynx 300",
             "contentType":"img",
-            "linkBlob":"/assets/PresentationData/img-01-02.png",
-            "text":"<i>in DIV idual text</i>",
+            "linkBlob":"./PresentationData/001-1060x800.png",
+            "text":"",
+            "linkOut":""
+        },        {
+            "order":2,		
+			"title":"Технические характеристики",
+            "contentType":"img",
+            "linkBlob":"./PresentationData/002-1060x800.png",
+            "text":"",
+            "linkOut":""
+        },        {
+            "order":3,		
+			"title":"Технические характеристики",
+            "contentType":"img",
+            "linkBlob":"./PresentationData/003-1060x800.png",
+            "text":"",
+            "linkOut":""
+        },        {
+            "order":4,		
+			"title":"Симуляция обработки детали",
+            "contentType":"img",
+            "linkBlob":"./PresentationData/004-1060x800.png",
+            "text":"",
+            "linkOut":""
+        },
+        {
+            "order":5,		
+			"title":"Группа компаний 'ВариУс' - решение полного цикла инжиниринговых задач",
+            "contentType":"img",
+            "linkBlob":"./PresentationData/005-1060x800.png",
+            "text":"",
             "linkOut":""
         }
     ]
@@ -70,7 +99,7 @@
 				"managed":"true"		
 		},
 		{
-			"name":"video1-hls",
+			"name":"video2-vod",
 			"vid":1,		
 					"title":"video vod",
 					"contentType":"img",

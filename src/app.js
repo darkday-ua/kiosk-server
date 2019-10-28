@@ -4,148 +4,124 @@ const io = require('socket.io')(http);
 const fs = require("fs");
 const moment = require('moment');
 
-const defaultClientData = {clientIP:'',camIP:'',camFormat:'',selPres:''};
-let configuration = defaultClientData;
+const defaultClientData =
+{
+    "client": [],
+    "presentations": [],
+    "videos": []
+}
+let configuration = {
+    "client": [],
+    "presentations": [],
+    "videos": []
+};
 
-function log(message){
-    console.log(moment().format('YYYY-MM-DD:hh:mm:ss')+" "+message);
+
+function log(message) {
+    fs.appendFile(__dirname + "/kiosk-server.log", "\n" + moment().format('YYYY-MM-DD:hh:mm:ss') + " " + message, () => { });
+    console.log(moment().format('YYYY-MM-DD:hh:mm:ss') + " " + message);
 }
 
-function loadConfig(newconfiguration){
-    let prevConfig=configuration;
-    try
-    {
-        return Object.assign(configuration,newconfiguration);
+function loadConfig(newconfiguration) {    
+    try {
+        return Object.assign({},newconfiguration);
     }
-    catch (e)
-    {
-        log('got error '+e);
-        return prevConfig;
+    catch (e) {
+        log('got error ' + e);
+        return configuration;
     }
 
 }
 
-function refreshConfig(resultf){
+function refreshConfig(resultf) {
 
-fs.readFile(__dirname + "/kiosk-server.json", "utf8", 
-            resultf);
+    fs.readFile(__dirname + "/kiosk-server.json", "utf8",
+        resultf);
 
 }
 
-function saveConfig(){
-    fs.writeFile(__dirname + "/kiosk-server.json", configuration, 
-    function(error){
-        if(error) {
-            log('error writing config file'+error);                
-        }});  
-}
-const Presentations = [
-    {
-    name:"First",
-    version:1.0,
-    pages:[
-        {
-            title:'title01',
-            contentType:'img',
-            linkBlob:'/assets/PresentationData/img-01-01.png',
-            text:'Blah blaah blah blah blah <b>BOLD BLAH</b><br><i>Next string italic blah</i>',
-            duration:0,
-            width:'100%',
-            height:'auto',
-            linkOut:''
-        },
-        {
-            title:'title02',
-            contentType:'img',
-            linkBlob:'/assets/PresentationData/img-01-02.png',
-            text:'<i>in DIV idual text</i>',
-            duration:0,
-            width:'100%',
-            height:'auto',
-            linkOut:''
-        }
-    ]
-    },
-    {
-        name:"Second",
-        version:1.1,
-        pages:[
-            {
-                title:'title02-01',
-                contentType:'img',
-                linkBlob:'/assets/PresentationData/img-02-01.png',
-                text:'<i>P02-01</i>',
-                duration:0,
-                width:'100%',
-                height:'auto',
-                linkOut:''
-            },
-            {
-                title:'title02-02',
-                contentType:'video',
-                linkBlob:'/assets/PresentationData/video-02-02.mp4',
-                text:'<i>P02-02</i>',
-                duration:0,
-                width:'100%',
-                height:'auto',
-                linkOut:''
+function saveConfig() {
+    fs.writeFile(__dirname + "/kiosk-server.json", configuration,
+        function (error) {
+            if (error) {
+                log('error writing config file' + error);
             }
-        ]
-        }
+        });
+}
+const Presentations = [];
 
-];
 
 io.on("connection", socket => {
-    log('here is a connection');
-    let previousPID; //presentation id
-    const safeJoin = currentPID => {
-       if (currentPID==previousPID) return; //is necessary?
-      socket.leave(previousPID);
-      socket.join(currentPID);
-      previousPID = currentPID;
-      let hasChanges=false;
-      for (let key in configuration){
-          if (key=="clientIP"){
-              if (configuration[key]==socket.handshake.address) 
-                if (configuration.selPres!=currentPID) //may  never run because there is check before
-                {
-                    hasChanges=true;
-                    configuration.selPres=currentPID;
-                }
-          }
-      }
-      if (hasChanges) saveConfig();
-    };
-    var clientIP = socket.handshake.address;
-    log(clientIP);
+    log('Here is a connection from ' + socket.handshake.address);
+    // let previousPID; //presentation id
+    // const safeJoin = currentPID => {
+    //    if (currentPID==previousPID) return; //is necessary?
+    //   socket.leave(previousPID);
+    //   socket.join(currentPID);
+    //   previousPID = currentPID;
+    //   let hasChanges=false;
+    //   for (let key in configuration){
+    //       if (key=="clientIP"){
+    //           if (configuration[key]==socket.handshake.address) 
+    //             if (configuration.selPres!=currentPID) //may  never run because there is check before
+    //             {
+    //                 hasChanges=true;
+    //                 configuration.selPres=currentPID;
+    //             }
+    //       }
+    //   }
+    //   if (hasChanges) saveConfig();
+
     socket.on("getPresentation", PID => {
-      if ((PID<Presentations.length())&&(PID>=0))
-      {
-          if (Presentations[PID])
-          {
-            safeJoin(PID);
-            socket.emit("PresentationUpdate", Presentations[PID]); //take presentation by ID and send to all subscribed clients
-      
-          }
-      }
-    });
-  
-    socket.on("getPresentationsList", () => {
-        refreshConfig(function(error,data){
-            if(error) {
-                log('error reading config file'+error);                
+        if ((PID < Presentations.length()) && (PID >= 0)) {
+            if (Presentations[PID]) {
+                safeJoin(PID);
+                socket.emit("PresentationUpdate", Presentations[PID]); //take presentation by ID and send to all subscribed clients
+
             }
-            else
-            {                    
+        }
+    });
+
+    socket.on("getConfig", () => {
+        refreshConfig(function (error, data) {
+            if (error) {
+                log('error reading config file' + error);
+            }
+            else {
                 configuration = loadConfig(JSON.parse(data));
-                log('send pupd');
-                socket.emit("PresentationUpdate",JSON.stringify(configuration)); 
-            }});
-            log('send plist');
-            socket.emit("PresentationsList", JSON.stringify(Presentations.map(function(x){return x['name'];})));
+                let clientconfig = {
+                    "client": [],
+                    "presentations": [],
+                    "videos": []
+                };
+                clientconfig.client.push(configuration.client.filter(function (el) { return el.ip == socket.handshake.address }));
+                configuration.presentations.forEach(function (el) { clientconfig.presentations.push(el) });
+                configuration.videos.forEach(function (el) { clientconfig.videos.push(el) });
+                socket.emit("Configuration", JSON.stringify(clientconfig));
+            }
+        });
     });
     socket.emit("connected");
-  });
+});
 
-  log('kiosk-server started');
-  http.listen(3443,'0.0.0.0');
+log('kiosk-server started');
+http.listen(3443, '0.0.0.0');
+app.get('/PresentationData/:name', function (req, res,next) {
+    var options = {
+        root: __dirname+'/PresentationData',
+        dotfiles: 'deny',
+        headers: {
+          'x-timestamp': Date.now(),
+          'x-sent': true
+        }
+      }
+      res.type('png');    
+      var fileName = req.params.name
+      res.sendFile(fileName, options, function (err) {
+        if (err) {
+          next(err)
+        } 
+      })
+  
+  });
+  
