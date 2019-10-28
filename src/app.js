@@ -148,4 +148,4 @@ io.on("connection", socket => {
   });
 
   log('kiosk-server started');
-  http.listen(3333,'0.0.0.0');
+  http.listen(3443,'0.0.0.0');
