@@ -1,0 +1,84 @@
+{
+    "client":[
+	{
+        "ip":"127.0.0.1",
+        "pid":"0",
+        "vlist":[1],
+        "camEnable":"false"
+    },
+    {
+        "ip":"127.0.0.2",
+        "pid":"1",
+        "vlist":[0],
+        "camEnable":"true"
+    }
+	],
+	"presentations":[  {
+	"name":"First",
+	"pid":0,
+    "pages":[
+        {
+            "order":0,		
+			"title":"title01",
+            "contentType":"img",
+            "linkBlob":"/assets/PresentationData/img-01-01.png",
+            "text":"Blah blaah blah blah blah <b>BOLD BLAH</b><br><i>Next string italic blah</i>",
+            "linkOut":""
+        },
+        {
+			"order":1,
+			"title":"title02",
+            "contentType":"img",
+            "linkBlob":"/assets/PresentationData/img-01-02.png",
+            "text":"<i>in DIV idual text</i>",
+            "linkOut":""
+        }
+    ]
+    },
+    {
+		"name":"Second",
+		"pid":1,
+        "pages":[
+            {
+				"order":0,
+				"title":"title02-01",
+                "contentType":"img",
+                "linkBlob":"/assets/PresentationData/img-02-01.png",
+                "text":"<i>P02-01</i>",
+                "linkOut":""
+            },
+            {
+				"order":1,				
+				"title":"title02-02",
+                "contentType":"video",
+                "linkBlob":"/assets/PresentationData/video-02-02.mp4",
+                "text":"<i>P02-02</i>",
+                "linkOut":""
+            }
+        ]
+        }
+	],
+	"videos":[  
+		{
+		"name":"video1-hls",
+		"vid":0,		
+				"title":"hls",
+				"contentType":"video/hls",
+				"linkBlob":"https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8",
+				"text":"",
+				"linkOut":"",
+				"managed":"true"		
+		},
+		{
+			"name":"video1-hls",
+			"vid":1,		
+					"title":"video vod",
+					"contentType":"img",
+					"linkBlob":"/assets/PresentationData/img-01-01.png",
+					"text":"Blah blaah blah blah blah <b>BOLD BLAH</b><br><i>Next string italic blah</i>",
+					"linkOut":"",
+					"managed":"false"	
+			}			
+			
+		]
+}
