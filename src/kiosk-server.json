@@ -21,7 +21,7 @@
             "order":0,		
 			"title":"Компактные токарные обрабатывающие центры серии LYNX 300M",
             "contentType":"img",
-            "linkBlob":"http://localhost:3443/PresentationData/000-1060x800.png",
+            "linkBlob":"http://localhost/PresentationData/000-1060x800.png",
             "text":"",
             "linkOut":""
         },
@@ -29,28 +29,28 @@
             "order":1,		
 			"title":"СТАНИНА серии Lynx 300",
             "contentType":"img",
-            "linkBlob":"./PresentationData/001-1060x800.png",
+            "linkBlob":"http://localhost/PresentationData/001-1060x800.png",
             "text":"",
             "linkOut":""
         },        {
             "order":2,		
 			"title":"Технические характеристики",
             "contentType":"img",
-            "linkBlob":"./PresentationData/002-1060x800.png",
+            "linkBlob":"http://localhost/PresentationData/002-1060x800.png",
             "text":"",
             "linkOut":""
         },        {
             "order":3,		
 			"title":"Технические характеристики",
             "contentType":"img",
-            "linkBlob":"./PresentationData/003-1060x800.png",
+            "linkBlob":"http://localhost/PresentationData/003-1060x800.png",
             "text":"",
             "linkOut":""
         },        {
             "order":4,		
 			"title":"Симуляция обработки детали",
             "contentType":"img",
-            "linkBlob":"./PresentationData/004-1060x800.png",
+            "linkBlob":"http://localhost/PresentationData/004-1060x800.png",
             "text":"",
             "linkOut":""
         },
@@ -58,7 +58,7 @@
             "order":5,		
 			"title":"Группа компаний 'ВариУс' - решение полного цикла инжиниринговых задач",
             "contentType":"img",
-            "linkBlob":"./PresentationData/005-1060x800.png",
+            "linkBlob":"http://localhost/PresentationData/005-1060x800.png",
             "text":"",
             "linkOut":""
         }
