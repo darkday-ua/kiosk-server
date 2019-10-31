@@ -627,3 +627,50 @@
 2019-10-30:05:30:51 connection of 9IamBegkk7cWjkY6AAAE from 127.0.0.1
 2019-10-30:05:30:51 client connected
 2019-10-30:05:30:51 refreshing conf
+2019-10-30:10:56:22 kiosk-server started
+2019-10-30:10:56:45 connection of QpT2SCjf_GI2W2uhAAAA from 127.0.0.1
+2019-10-30:10:56:45 client connected
+2019-10-30:10:56:45 refreshing conf
+2019-10-30:11:10:46 connection of 6-TApwNPWJizrT0GAAAB from 127.0.0.1
+2019-10-30:11:10:46 client connected
+2019-10-30:11:10:46 refreshing conf
+2019-10-30:11:15:16 Socket 6-TApwNPWJizrT0GAAAB disconnected.
+2019-10-30:11:20:29 Socket QpT2SCjf_GI2W2uhAAAA disconnected.
+2019-10-30:11:20:29 connection of iz3U27W4caK0Re6cAAAC from 127.0.0.1
+2019-10-30:11:20:29 client connected
+2019-10-30:11:20:29 refreshing conf
+2019-10-30:11:21:05 connection of CsERNZU-l4XIkgTsAAAD from 127.0.0.1
+2019-10-30:11:21:05 client connected
+2019-10-30:11:21:05 refreshing conf
+2019-10-30:11:21:07 connection of -Cs73YALNTVXLCtOAAAE from 127.0.0.1
+2019-10-30:11:21:07 client connected
+2019-10-30:11:21:07 refreshing conf
+2019-10-30:11:21:35 Socket CsERNZU-l4XIkgTsAAAD disconnected.
+2019-10-30:11:22:03 Socket iz3U27W4caK0Re6cAAAC disconnected.
+2019-10-30:11:22:05 connection of G75FsAbPQkg8C2jmAAAF from 127.0.0.1
+2019-10-30:11:22:05 client connected
+2019-10-30:11:22:05 refreshing conf
+2019-10-30:11:22:14 Socket G75FsAbPQkg8C2jmAAAF disconnected.
+2019-10-30:11:23:01 Socket -Cs73YALNTVXLCtOAAAE disconnected.
+2019-10-30:11:23:02 connection of Vu46vR_tSCfaNayDAAAG from 127.0.0.1
+2019-10-30:11:23:02 client connected
+2019-10-30:11:23:02 refreshing conf
+2019-10-30:11:43:57 Socket Vu46vR_tSCfaNayDAAAG disconnected.
+2019-10-30:11:46:16 kiosk-server started
+2019-10-30:11:51:44 connection of 2qBsdSLPb0ik5a0YAAAA from 127.0.0.1
+2019-10-30:11:51:44 refreshing conf
+2019-10-30:11:53:30 Socket 2qBsdSLPb0ik5a0YAAAA disconnected.
+2019-10-30:11:53:30 connection of XBOPEJLa9ntASSP7AAAB from 127.0.0.1
+2019-10-30:11:53:31 connection of 4hbOwWTZKHWh-2b6AAAC from 127.0.0.1
+2019-10-30:11:53:32 refreshing conf
+2019-10-30:11:54:00 Socket XBOPEJLa9ntASSP7AAAB disconnected.
+2019-10-30:11:54:40 Socket 4hbOwWTZKHWh-2b6AAAC disconnected.
+2019-10-30:11:54:40 connection of 9jDN5oC39c66O09VAAAD from 127.0.0.1
+2019-10-30:11:54:41 connection of _52hkh64lA0F9TrTAAAE from 127.0.0.1
+2019-10-30:11:54:41 refreshing conf
+2019-10-30:11:55:10 Socket 9jDN5oC39c66O09VAAAD disconnected.
+2019-10-30:11:55:45 Socket _52hkh64lA0F9TrTAAAE disconnected.
+2019-10-30:11:55:45 connection of 6cT6VlS8YBFWlEfXAAAF from 127.0.0.1
+2019-10-30:11:55:46 connection of LJpvosyDb7hdiTT5AAAG from 127.0.0.1
+2019-10-30:11:55:46 refreshing conf
+2019-10-30:11:56:15 Socket 6cT6VlS8YBFWlEfXAAAF disconnected.

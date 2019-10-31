@@ -1,0 +1,19 @@
+const app = require('express')();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+
+
+io.on('connection', (socket) => {
+  console.log(`Socket ${socket.id} connected.`);
+
+  socket.on('message', (data) => {
+    console.log(`Socket ${socket.id} sent ${data}`);
+	socket.emit('response','like hell');
+  });
+
+  socket.on('disconnect', () => {
+    console.log(`Socket ${socket.id} disconnected.`);
+  });
+});
+
+server.listen(9000,'0.0.0.0');

@@ -1,4 +1,4 @@
-const socketUrl = 'http://localhost:9000';
+const socketUrl = 'http://localhost:3443';
 
 let connectButton;
 let disconnectButton;
